@@ -1,20 +1,25 @@
-let expressBuyButtons = document.querySelectorAll(".fXwKDq");
+function findAndAttachExportButtons() {
+  let expressBuyButtons = Array.from(document.querySelectorAll(".sc-gEOWYS.fXwKDq"));
 
-expressBuyButtons.forEach(button => {
-    let flexDiv = document.createElement("div");
-    flexDiv.classList.add("export-container");
+  expressBuyButtons.filter(button => !button.classList.contains('visited')).forEach(button => {
+      let flexDiv = document.createElement("div");
+      flexDiv.classList.add("export-container");
 
-    let exportButton = document.createElement("button");
-    exportButton.innerText = "Export";
-    exportButton.classList.add('fXwKDq');
-    exportButton.classList.add('exportButton');
+      let exportButton = document.createElement("button");
+      exportButton.innerText = "Export";
+      exportButton.classList.add('fXwKDq');
+      exportButton.classList.add('exportButton');
 
-    exportButton.addEventListener("click", exportArticle)
+      exportButton.addEventListener("click", exportArticle)
 
-    flexDiv.appendChild(exportButton);
+      flexDiv.appendChild(exportButton);
 
-    button.parentElement.parentElement.appendChild(flexDiv);
-});
+      button.parentElement.parentElement.appendChild(flexDiv);
+      button.classList.add('visited');
+  });
+}
+
+document.addEventListener('scroll', findAndAttachExportButtons);
 
 function exportArticle() {
     const article = this.closest('article.sales__sc-156l7nn-0');
@@ -27,12 +32,15 @@ function exportArticle() {
     const currency = productFinalPrice.split(' ')[1];
     productOriginalPrice = Number(productOriginalPrice.split(' ')[0].replace(',', '.'));
     productFinalPrice = Number(productFinalPrice.split(' ')[0].replace(',', '.'));
+    const productPhotosUrl = Array.from(article.querySelectorAll('.sales__sc-1mi57a6-1 img')).map(node => node.src);
+
     console.log(productDetailUrl);
     console.log(productName);
     console.log(productOriginalPrice);
     console.log(productFinalPrice);
     console.log(productSalesPercent);
     console.log(currency);
+    console.log(productPhotosUrl);
 
 }
 
