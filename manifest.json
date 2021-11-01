@@ -17,7 +17,8 @@
                 "my-styles.css"
             ],
             "js": [
-                "content-script.js"
+                "content-script.js",
+                "product-detail-script.js"
             ]
         }
     ]
