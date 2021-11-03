@@ -26,11 +26,14 @@ function exportArticle() {
     let productFinalPrice = document.querySelector('#__next > div > div.sc-iEhLsB.lcrbzR > div > div > section > div:nth-child(2) > div > div.sc-bbUAki.cjlFQF > div > div.sc-krduYZ.gopsDW > div > span.sc-ksHpcM.kGavuF.sc-fvOMhg.sc-ibKkBv.bbwsQi.bfVmUi').textContent;
     let productOriginalPrice = document.querySelector('#__next > div > div.sc-iEhLsB.lcrbzR > div > div > section > div:nth-child(2) > div > div.sc-bbUAki.cjlFQF > div > div.sc-krduYZ.gopsDW > div > span.sc-Dtwra.eRuwRt > span.sc-ksHpcM.hhexPA.sc-fvOMhg.sc-ejmJqG.bbwsQi.icELPl').textContent;
     const salePercentage = document.querySelector('#__next > div > div.sc-iEhLsB.lcrbzR > div > div > section > div:nth-child(2) > div > div.sc-bbUAki.cjlFQF > div > div.sc-krduYZ.gopsDW > span').textContent;
-    const brandLogo = document.querySelector('#\31 -37380397 > div > div.ftBlocContainer > div > h3 > img').src;
+    
+    const detailProductIframe = document.querySelector('iframe');
+    const brandLogo = detailProductIframe.contentWindow.document.querySelector('div.ftBlocTitle > h3 > img').src;
+    const brandName = document.title.split('|')[0].trim();
     productFinalPrice = Number(productFinalPrice.split(' ')[0].replace(',', '.'));
     productOriginalPrice = Number(productOriginalPrice.split(' ')[0].replace(',', '.'));
 
-    console.log(productPhotoUrls, productName, productFinalPrice, productOriginalPrice, salePercentage);
+    console.log(productPhotoUrls, productName, productFinalPrice, productOriginalPrice, salePercentage, brandName, brandLogo);
 }
 
 findAndAttachExportButtons();
