@@ -1,7 +1,8 @@
+using System.Collections.Generic;
+
 namespace PrivateSale.Models {
     public class Product {
         public int Id { get; }
-
         public string Name { get; }
         public decimal OriginalPrice { get; }
         public decimal FinalPrice { get; }

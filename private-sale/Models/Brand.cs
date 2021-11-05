@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace PrivateSale.Models {
     public class Brand {
         public int Id { get; }
