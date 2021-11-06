@@ -10,12 +10,18 @@ namespace PrivateSale.DataContext
         }
 
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductInformation> ProductInformations { get; set; }
+        public DbSet<ProductLine> ProductLines { get; set; }
+        public DbSet<ProductSelection> ProductSelections { get; set; }
+        public DbSet<Sale> Sales { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Brand>().ToTable("Brand");
-            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation");
+            modelBuilder.Entity<ProductLine>().ToTable("ProductLine");
+            modelBuilder.Entity<ProductSelection>().ToTable("ProductSelection");
+            modelBuilder.Entity<Sale>().ToTable("Sale");
         }
     }
 }
