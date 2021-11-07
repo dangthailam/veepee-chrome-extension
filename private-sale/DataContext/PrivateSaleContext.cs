@@ -5,7 +5,7 @@ namespace PrivateSale.DataContext
 {
     public class PrivateSaleContext : DbContext
     {
-        public PrivateSaleContext(DbContextOptions options) : base(options)
+        public PrivateSaleContext(DbContextOptions<PrivateSaleContext> options) : base(options)
         {
         }
 
@@ -17,11 +17,11 @@ namespace PrivateSale.DataContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Brand>().ToTable("Brand");
-            modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation");
-            modelBuilder.Entity<ProductLine>().ToTable("ProductLine");
-            modelBuilder.Entity<ProductSelection>().ToTable("ProductSelection");
-            modelBuilder.Entity<Sale>().ToTable("Sale");
+            modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());
+            modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation").HasKey(x => x.Id);
+            modelBuilder.Entity<ProductLine>().ToTable("ProductLine").HasKey(x => x.Id);
+            modelBuilder.Entity<ProductSelection>().ToTable("ProductSelection").HasKey(x => x.Id);
+            modelBuilder.Entity<Sale>().ToTable("Sale").HasKey(x => x.Id);
         }
     }
 }
