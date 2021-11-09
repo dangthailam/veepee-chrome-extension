@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace PrivateSale.Models
 {
@@ -7,8 +6,9 @@ namespace PrivateSale.Models
     {
         public Guid Id { get; }
         public string Name { get; }
+        public Brand Brand { get; }
 
-        public ProductInformation()
+        private ProductInformation()
         {
 
         }

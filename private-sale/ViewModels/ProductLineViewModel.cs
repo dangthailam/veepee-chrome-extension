@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace PrivateSale.ViewModels {
@@ -9,6 +10,8 @@ namespace PrivateSale.ViewModels {
         public decimal OriginalPrice { get; set; }
         public decimal FinalPrice { get; set; }
         public decimal SalePercentage { get; set; }
+        public DateTime StartAt { get; set; }
+        public DateTime EndAt { get; set; }
         public IList<ProductSelectionViewModel> Selections { get; set; }
     }
 }

@@ -18,10 +18,10 @@ namespace PrivateSale.DataContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new SaleEntityTypeConfiguration());
             modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation").HasKey(x => x.Id);
             modelBuilder.Entity<ProductLine>().ToTable("ProductLine").HasKey(x => x.Id);
             modelBuilder.Entity<ProductSelection>().ToTable("ProductSelection").HasKey(x => x.Id);
-            modelBuilder.Entity<Sale>().ToTable("Sale").HasKey(x => x.Id);
         }
     }
 }
