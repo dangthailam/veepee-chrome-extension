@@ -3,14 +3,15 @@ using System.Collections.Generic;
 
 namespace PrivateSale.Models
 {
-    public class ProductLine
+    public class ProductLine : Entity
     {
-        public Guid Id { get; set; }
-        public ProductInformation ProductInformation { get; set; }
+        public ProductInformation ProductInformation { get; }
         public decimal OriginalPrice { get; }
         public decimal FinalPrice { get; }
         public decimal Discount { get; }
-        public IList<ProductSelection> Selections { get; set; }
+        public IList<ProductSelection> Selections { get; }
         public IList<string> ImageUrls { get; }
+
+
     }
 }

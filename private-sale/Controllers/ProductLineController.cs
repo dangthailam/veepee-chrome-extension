@@ -27,6 +27,7 @@ namespace PrivateSale.Controllers
             Brand brand = await _context.Brands
                 .Include(x => x.Sales)
                 .ThenInclude(sale => sale.ProductLines)
+                .ThenInclude(productLine => productLine.ProductInformation)
                 .FirstOrDefaultAsync(x => x.Name == viewModel.BrandName);
 
             if (brand == null)
@@ -34,19 +35,24 @@ namespace PrivateSale.Controllers
                 brand = Brand.NewBrand(viewModel.BrandName, viewModel.BrandLogoUrl);
             }
 
-            // Sale sale = brand.Sales.FirstOrDefault(x => x.StartAt.Date == viewModel.StartAt.Date && x.EndAt.Date == viewModel.EndAt.Date);
+            Sale sale = brand.Sales.FirstOrDefault(x => x.SalePeriod.StartAt.Date == viewModel.StartAt.Date && x.SalePeriod.EndAt.Date == viewModel.EndAt.Date);
 
             // if (sale == null)
             // {
-            //     sale = Sale.NewSale(viewModel.StartAt, viewModel.EndAt, brand);
+            //     sale = Sale.NewSale(viewModel.StartAt, viewModel.EndAt, brand, new List<ProductLine> {
+            //         new ProductLine()
+            //     });
             // }
 
-            // ProductLine productLine = _context.ProductInformations.FirstOrDefaultAsync(x => x.)
+            // ProductLine productLine = sale.ProductLines.FirstOrDefault(x => x.ProductInformation.Name == viewModel.Name);
 
-            ProductLine productLine = new ProductLine
-            {
-                
-            };
+            // if (productLine == null)
+            // {
+            //     ProductLine productLine = new ProductLine
+            //     {
+
+            //     };
+            // }
 
             await _context.SaveChangesAsync();
 
