@@ -12,7 +12,7 @@ namespace PrivateSale.Models
 
         private Sale()
         {
-            
+
         }
 
         private Sale(Brand brand, IList<ProductLine> productLines)
@@ -27,6 +27,11 @@ namespace PrivateSale.Models
             brand.AddSale(sale);
             SalePeriod.NewSalePeriod(startAt, endAt, sale);
             return sale;
+        }
+
+        public void AddProductLine(ProductLine productLine)
+        {
+            ProductLines.Add(productLine);
         }
     }
 }

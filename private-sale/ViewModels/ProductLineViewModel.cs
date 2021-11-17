@@ -9,7 +9,7 @@ namespace PrivateSale.ViewModels {
         public string BrandLogoUrl { get; set; }
         public decimal OriginalPrice { get; set; }
         public decimal FinalPrice { get; set; }
-        public decimal SalePercentage { get; set; }
+        public decimal Discount { get; set; }
         public DateTime StartAt { get; set; }
         public DateTime EndAt { get; set; }
         public IList<ProductSelectionViewModel> Selections { get; set; }

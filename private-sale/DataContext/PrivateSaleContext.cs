@@ -10,7 +10,6 @@ namespace PrivateSale.DataContext
         }
 
         public DbSet<Brand> Brands { get; set; }
-        public DbSet<ProductInformation> ProductInformations { get; set; }
         public DbSet<ProductLine> ProductLines { get; set; }
         public DbSet<ProductSelection> ProductSelections { get; set; }
         public DbSet<Sale> Sales { get; set; }
@@ -19,7 +18,6 @@ namespace PrivateSale.DataContext
         {
             modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new SaleEntityTypeConfiguration());
-            modelBuilder.Entity<ProductInformation>().ToTable("ProductInformation").HasKey(x => x.Id);
             modelBuilder.Entity<ProductLine>().ToTable("ProductLine").HasKey(x => x.Id);
             modelBuilder.Entity<ProductSelection>().ToTable("ProductSelection").HasKey(x => x.Id);
         }

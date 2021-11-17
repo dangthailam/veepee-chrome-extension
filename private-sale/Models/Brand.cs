@@ -9,7 +9,6 @@ namespace PrivateSale.Models
         public string Name { get; }
         public string LogoUrl { get; }
         public HashSet<Sale> Sales { get; } = new HashSet<Sale>();
-        public HashSet<ProductInformation> Products { get; } = new HashSet<ProductInformation>();
 
         private Brand()
         {
@@ -30,11 +29,6 @@ namespace PrivateSale.Models
         public bool AddSale(Sale sale)
         {
             return Sales.Add(sale);
-        }
-
-        public bool AddProduct(ProductInformation product)
-        {
-            return Products.Add(product);
         }
     }
 }
